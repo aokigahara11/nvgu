@@ -11,7 +11,7 @@ int main() {
 
     int sum = 0;
 
-    for (int i = m + 1; i < n; i++) {
+    for (int i = m; i < n; i++) {
         if (i % 2 != 0) {
             int square = pow(i, 2);
             sum += square;
