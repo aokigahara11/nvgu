@@ -18,18 +18,3 @@ int glasn(char symbol) {
     return 0;
 }
 
-int main() {
-    char a;
-    printf("Введите букву на кириллице: ");
-    scanf("%c", &a);
-
-    int result = glasn(a);
-
-    if (result == 1) {
-        printf("Буква '%c' - гласная.\n", a);
-    } else {
-        printf("Буква '%c' - согласная.\n", a);
-    }
-
-    return 0;
-}
