@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "glasn.h"
+#include "../../headers/glasn.h"
 
 int main() {
     char symbol;

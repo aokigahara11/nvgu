@@ -1,4 +1,4 @@
-#include "glasn.h"
+#include "../../headers/glasn.h"
 
 // Функция для проверки символа на гласную/согласную букву
 int glasn(char symbol) {

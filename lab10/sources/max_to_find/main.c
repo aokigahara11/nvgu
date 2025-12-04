@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "max_to_find.h"
+#include "../../headers/max_to_find.h" 
 
 int main() {
     int num1, num2, num3, num4;

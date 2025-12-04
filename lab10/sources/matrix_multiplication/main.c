@@ -1,40 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "matrix_multiplication.h"
+#include "../../headers/matrix_multiplication.h"
 
 int main() {
     int mult_number;
-    int size;
-
-    printf("Введите размерность матрицы: ");
-    scanf("%d", &size);
-
-    printf("Введите число, на которое желаете умножить элементы матрицы: ");
+    printf("Введите число, на которое желаете умножить элементы массива: ");
     scanf("%d", &mult_number);
 
     srand(time(NULL));
-    int matrix[size][size];
+
+    int size = rand() % 10 + 1;
+    printf("Размер массива: %d\n", size);
     
-    // Генератор чисел в массиве
-    printf("Исходная матрица:\n");
+    int mas[size];
+    
+    // Генерация чисел в массиве
+    printf("Исходный массив:\n");
     for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            matrix[i][j] = rand() % 10 + 1;
-            printf("%d ", matrix[i][j]);
-        }
-        printf("\n");
+        mas[i] = rand() % 10 + 1;
+        printf("%d ", mas[i]);
     }
+    printf("\n");
 
-    mult_matrix_num(size, matrix, mult_number);
+    mult_matrix_num(size, mas, mult_number);
 
-    printf("\nМатрица после умножения на %d:\n", mult_number);
+    printf("\nМассив после умножения на %d:\n", mult_number);
     for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            printf("%d ", matrix[i][j]);
-        }
-        printf("\n");
+        printf("%d ", mas[i]);
     }
+    printf("\n");
 
     return 0;
 }

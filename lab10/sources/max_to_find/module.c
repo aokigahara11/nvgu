@@ -1,4 +1,4 @@
-#include "max_to_find.h"
+#include "../../headers/max_to_find.h"
 
 // Функция для определения максимального числа из двух
 int max_of_two(int a, int b) {

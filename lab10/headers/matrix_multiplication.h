@@ -1,1 +1,1 @@
-void mult_matrix_num(int size, int matrix[size][size], int mult_number); // Умножение матрицы
+void mult_matrix_num(int size, int mas[], int mult_number); // Умножение массива
