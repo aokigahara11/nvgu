@@ -1,17 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <time.h>
 
-// Написать функцию, умножающую все элементы массива на число. Параметрами функции является массив и число, на 
-// которое нужно умножить его элементы.
-
-// Функция для умножения каждого числа в матрице
-void mult_matrix_num(int matrix[size][size], int mult_number) {
+// Функция для умножения каждого элемента массива на число
+void mult_matrix_num(int size, int mas[], int mult_number) {
     for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            matrix[i][j] *= mult_number;
-        }
+        mas[i] *= mult_number;
     }
 }
 
+int main() {
+    int mult_number;
+    printf("Введите число, на которое желаете умножить элементы массива: ");
+    scanf("%d", &mult_number);
+
+    srand(time(NULL));
+
+    int size = rand() % 10 + 1;
+    printf("Размер массива: %d\n", size);
+    
+    int mas[size];
+    
+    // Генерация чисел в массиве
+    printf("Исходный массив:\n");
+    for (int i = 0; i < size; i++) {
+        mas[i] = rand() % 10 + 1;
+        printf("%d ", mas[i]);
+    }
+    printf("\n");
+
+    mult_matrix_num(size, mas, mult_number);
+
+    printf("\nМассив после умножения на %d:\n", mult_number);
+    for (int i = 0; i < size; i++) {
+        printf("%d ", mas[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
