@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 
 // Записать в файл N действительных чисел. Вычислить произведение четных компонентов файла и сумму нечетных, и 
 // вывести полученные значения в другой файл. 
@@ -9,9 +10,12 @@ int main() {
     char file_path[256], new_file_path[256];
     FILE *f, *new_f;
     int quantity = 0;
-    long long even = 1;
-    int odd = 0;
-    int current;
+    double even = 1.0;
+    double odd = 0.0;
+    double current;
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     
     printf("Введите полный путь к файлу: ");
     scanf("%s", file_path);
@@ -19,11 +23,11 @@ int main() {
     printf("Введите количество действительных чисел: ");
     scanf("%d", &quantity);
 
-    int list[quantity];
+    float list[quantity];
 
     srand(time(NULL));
     for (int i = 0; i < quantity; i++) {
-        list[i] = rand() % 100 + 1;
+        list[i] = (float)(rand() % 10000) / 100.0f;
     }
 
     f = fopen(file_path, "w+");
@@ -32,9 +36,8 @@ int main() {
         return 1;
     }
 
-    // Заполянем числами текстовый файл
     for (int i = 0; i < quantity; i++) {
-        fprintf(f, "%d ", list[i]);
+        fprintf(f, "%f ", list[i]);
     }
 
     rewind(f);
@@ -49,22 +52,22 @@ int main() {
         return 1;
     }
 
-    // Читаем числа из файла и вычисляем
     for (int i = 0; i < quantity; i++) {
-        fscanf(f, "%d", &current);
+        fscanf(f, "%lf", &current);
         
-        if (current % 2 == 0) {
+        int int_part = (int)current;
+        if (int_part % 2 == 0) {
             even = even * current;
         } else {
             odd = odd + current;
         }
     }
 
-    fprintf(new_f, "Произведение четных чисел: %lld\n", even);
-    fprintf(new_f, "Сумма нечетных чисел: %d\n", odd);
+    fprintf(new_f, "Произведение четных чисел: %.2lf\n", even);
+    fprintf(new_f, "Сумма нечетных чисел: %.2lf\n", odd);
 
-    printf("Произведение четных чисел: %lld\n", even);
-    printf("Сумма нечетных чисел: %d\n", odd);
+    printf("Произведение четных чисел: %.2lf\n", even);
+    printf("Сумма нечетных чисел: %.2lf\n", odd);
     printf("Результаты записаны в файл: %s\n", new_file_path);
 
     fclose(f);

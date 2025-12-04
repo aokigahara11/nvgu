@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <windows.h>
 
 // Дан файл, содержащий произвольный текст. Выяснить, чего в нем больше: букв или цифр.
 
@@ -9,6 +10,9 @@ int main() {
     FILE *f;
     int numbers = 0, letters = 0;
     int ch;
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     
     printf("Введите полный путь к файлу: ");
     scanf("%s", file_path);

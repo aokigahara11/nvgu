@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <windows.h>
 
 // Создать массив, элементами которого являются структуры – список факультетов НГГУ (название, фамилия декана, 
 // число студентов). Создать функцию, сортирующую данную структуру (например, по числу студентов), и функцию 
@@ -62,11 +63,16 @@ void replace(struct faculty f[], int n) {
 
 int main() {
     int n;
+    
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+    
     printf("Введите количество факультетов: ");
     scanf("%d", &n);
 
     struct faculty f[n];
     int i;
+    
 
     for (i = 0; i < n; i++) {
         printf("\n==== Факультет %d ====\n", i + 1);

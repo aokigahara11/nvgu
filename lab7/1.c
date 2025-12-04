@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 
 // Создать массив, элементами которого являются структуры – список спортсменов (фамилия, вид спорта, спортивное 
 // общество). Вывести информацию по тем из них, кто занимается введенным пользователем видом спорта
@@ -13,6 +14,9 @@ struct sportsman {
 
 int main() {
     int n;
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     
     printf("Введите количество спортсменов: ");
     scanf("%d", &n);

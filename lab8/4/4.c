@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 
 // Заполнить файл случайными действительными числами. Найти сумму минимального и максимального элементов этого 
 // файла и вывести их в другой файл. 
@@ -10,6 +11,9 @@ int main() {
     FILE *f, *new_f;
     float sum, min, max;
     int quantity;
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
     printf("Введите полный путь к файлу: ");
     scanf("%s", file_path);

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <windows.h>
 
 // Создать массив, элементами которого являются структуры – список постояльцев отеля (фамилия, дата заезда, дата 
 // выезда, номер апартаментов). Создать функцию, сортирующую данную структуру (например, по дате заезда), и 
@@ -46,6 +47,10 @@ void search(struct guest g[], int n) {
 
 int main() {
     int n;
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+    
     printf("Введите количество постояльцев: ");
     scanf("%d", &n);
 

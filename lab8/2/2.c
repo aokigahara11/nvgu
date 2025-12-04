@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <windows.h>
 
 // Дан текстовый файл. Удалить из него все лишние пробелы, оставив между словами не более одного пробела. Результат 
 // поместить в новый файл.
@@ -11,6 +12,9 @@ int main() {
     FILE *f, *new_f;
     int current;
     int previous = ' ';
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
     printf("Введите полный путь к файлу: ");
     scanf("%s", file_path);
