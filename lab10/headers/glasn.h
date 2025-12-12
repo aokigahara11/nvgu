@@ -1,1 +1,0 @@
-int glasn(char symbol); // Поиск гласных символов
