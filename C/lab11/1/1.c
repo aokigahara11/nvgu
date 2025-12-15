@@ -12,7 +12,6 @@ typedef struct node {
 
 int main() {
     FILE *file;
-    char file_path[256];
     char buffer[256];
     node* start = NULL;
     node* end = NULL;
@@ -21,10 +20,7 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     
-    printf("Введите путь к файлу: ");
-    scanf("%s", file_path);
-
-    file = fopen(file_path, "r");
+    file = fopen("C/lab11/1/text.txt", "r");
     if (file == NULL) {
         printf("Ошибка открытия файла\n");
         return 1;
