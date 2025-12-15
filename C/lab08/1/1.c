@@ -6,7 +6,6 @@
 // Дан файл, содержащий произвольный текст. Выяснить, чего в нем больше: букв или цифр.
 
 int main() {
-    char file_path[256];
     FILE *f;
     int numbers = 0, letters = 0;
     int ch;
@@ -14,10 +13,7 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     
-    printf("Введите полный путь к файлу: ");
-    scanf("%s", file_path);
-    
-    f = fopen(file_path, "r");
+    f = fopen("C/lab08/1/text.txt", "r");
     if (f == NULL) {
         printf("Ошибка! Не удалось открыть файл.");
         return 1;

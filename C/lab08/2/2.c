@@ -7,8 +7,6 @@
 // поместить в новый файл.
 
 int main() {
-    char file_path[256];
-    char new_file_path[256];
     FILE *f, *new_f;
     int current;
     int previous = ' ';
@@ -16,19 +14,13 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    printf("Введите полный путь к файлу: ");
-    scanf("%s", file_path);
-
-    f = fopen(file_path, "r");
+    f = fopen("C/lab08/2/text.txt", "r");
     if (f == NULL) {
         printf("Ошибка! Не удалось открыть файл.");
         return 1;
     }
 
-    printf("Введите путь для создания нового файла: ");
-    scanf("%s", new_file_path);
-
-    new_f = fopen(new_file_path, "w");
+    new_f = fopen("C/lab08/2/text_n.txt", "w");
     if (new_f == NULL) {
         printf("Ошибка! Не удалось создать новый файл.");
         return 1;

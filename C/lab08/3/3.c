@@ -7,7 +7,6 @@
 // вывести полученные значения в другой файл. 
 
 int main() {
-    char file_path[256], new_file_path[256];
     FILE *f, *new_f;
     int quantity = 0;
     double even = 1.0;
@@ -17,9 +16,6 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     
-    printf("Введите полный путь к файлу: ");
-    scanf("%s", file_path);
-
     printf("Введите количество действительных чисел: ");
     scanf("%d", &quantity);
 
@@ -30,22 +26,19 @@ int main() {
         list[i] = (float)(rand() % 10000) / 100.0f;
     }
 
-    f = fopen(file_path, "w+");
+    f = fopen("C/lab08/3/text.txt", "w+");
     if (f == NULL) {
         printf("Ошибка! Не удалось открыть файл.");
         return 1;
     }
 
     for (int i = 0; i < quantity; i++) {
-        fprintf(f, "%f ", list[i]);
+        fprintf(f, "%.2f ", list[i]);
     }
 
     rewind(f);
 
-    printf("Введите путь для создания нового файла: ");
-    scanf("%s", new_file_path);
-
-    new_f = fopen(new_file_path, "w");
+    new_f = fopen("C/lab08/3/text_n.txt", "w");
     if (new_f == NULL) {
         printf("Ошибка! Не удалось создать новый файл.");
         fclose(f);
@@ -68,7 +61,6 @@ int main() {
 
     printf("Произведение четных чисел: %.2lf\n", even);
     printf("Сумма нечетных чисел: %.2lf\n", odd);
-    printf("Результаты записаны в файл: %s\n", new_file_path);
 
     fclose(f);
     fclose(new_f);

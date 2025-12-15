@@ -7,7 +7,6 @@
 // файла и вывести их в другой файл. 
 
 int main() {
-    char file_path[256], new_file_path[256];
     FILE *f, *new_f;
     float sum, min, max;
     int quantity;
@@ -15,13 +14,7 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    printf("Введите полный путь к файлу: ");
-    scanf("%s", file_path);
-
-    printf("Введите путь для создания нового файла: ");
-    scanf("%s", new_file_path);
-
-    f = fopen(file_path, "w");
+    f = fopen("C/lab08/4/text.txt", "w");
     if (f == NULL) {
         printf("Ошибка! Не удалось открыть файл.");
         return 1;
@@ -53,7 +46,7 @@ int main() {
 
     sum = min + max;
 
-    new_f = fopen(new_file_path, "w");
+    new_f = fopen("C/lab08/4/text_n.txt", "w");
     if (new_f == NULL) {
         printf("Ошибка! Не удалось создать файл результатов.");
         return 1;
@@ -66,7 +59,6 @@ int main() {
     printf("Минимальное число: %.2f\n", min);
     printf("Максимальное число: %.2f\n", max);
     printf("Сумма минимального и максимального: %.2f\n", sum);
-    printf("Результат сохраненен в файл: %s", new_file_path);
 
     fclose(new_f);
 
